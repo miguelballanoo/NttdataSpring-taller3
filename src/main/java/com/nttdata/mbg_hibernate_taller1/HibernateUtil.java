@@ -3,21 +3,25 @@ package com.nttdata.mbg_hibernate_taller1;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/**
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
+ * 
+ * Clase HibernateUtil
+ * 
+ * @author Miguel Ángel Ballano Garduño
+ *
+ */
 public class HibernateUtil {
 
 	/** Factoría de sesiones */
 	private static final SessionFactory SESSION_FACTORY;
 
-	/**
-	 * Generación de factoría de sesiones.
-	 */
+	/* Generación de factoría de sesiones. */
 	static {
-
 		try {
-
 			// Generación de configuración.
 			SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-			
+
 		} catch (final Throwable ex) {
 
 			// Error de inicialización.
@@ -27,6 +31,7 @@ public class HibernateUtil {
 
 	}
 
+	
 	/**
 	 * Retorna la factoría de sesiones.
 	 * 

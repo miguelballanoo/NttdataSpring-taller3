@@ -13,9 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Ejercicio Hibernate [Taller 2]
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
  * 
- * Entidad Contrato
+ * Clase NttDataContrato
  * 
  * @author Miguel Ángel Ballano Garduño
  *

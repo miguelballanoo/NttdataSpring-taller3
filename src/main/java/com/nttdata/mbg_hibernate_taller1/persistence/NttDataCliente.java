@@ -13,14 +13,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Ejercicio Hibernate [Taller 1]
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
  * 
- * Entidad Cliente
+ * Clase HibernateUtil
  * 
  * @author Miguel Ángel Ballano Garduño
  *
  */
-
 @Entity
 @Table(name = "CLIENTE")
 public class NttDataCliente extends AbstractEntity implements Serializable {
@@ -42,7 +41,7 @@ public class NttDataCliente extends AbstractEntity implements Serializable {
 
 	/* DNI */
 	private String dni;
-	
+
 	/**/
 	List<NttDataContrato> contratos;
 
@@ -57,7 +56,7 @@ public class NttDataCliente extends AbstractEntity implements Serializable {
 
 	/**
 	 * @param clienteid
-	 *            cambiar el clienteId
+	 *            the clienteId to set
 	 */
 	public void setClienteId(Long clienteId) {
 		this.clienteId = clienteId;
@@ -121,23 +120,23 @@ public class NttDataCliente extends AbstractEntity implements Serializable {
 
 	/**
 	 * @param dni
-	 *            cambiar el dni
+	 *            the dni to set
 	 */
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	
 
 	/**
 	 * @return the contratos
 	 */
-	@OneToMany(cascade= CascadeType.ALL, mappedBy="cliente")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
 	public List<NttDataContrato> getContratos() {
 		return contratos;
 	}
 
 	/**
-	 * @param contratos the contratos to set
+	 * @param contratos
+	 *            the contratos to set
 	 */
 	public void setContratos(List<NttDataContrato> contratos) {
 		this.contratos = contratos;
@@ -145,8 +144,8 @@ public class NttDataCliente extends AbstractEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "NttDataCliente [clienteId=" + clienteId + ", clienteNombre=" + name + ", clientePrimerApellido=" + firstSurname
-		        + ", clienteSegundoApellido=" + secondSurname + ", dni=" + dni + "]";
+		return "NttDataCliente [clienteId=" + clienteId + ", clienteNombre=" + name + ", clientePrimerApellido=" + firstSurname + ", clienteSegundoApellido="
+		        + secondSurname + ", dni=" + dni + "]";
 	}
 
 }

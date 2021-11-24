@@ -4,6 +4,14 @@ import java.util.List;
 
 import com.nttdata.mbg_hibernate_taller1.persistence.NttDataCliente;
 
+/**
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
+ * 
+ * Servicio de gestion de cliente
+ * 
+ * @author Miguel Ángel Ballano Garduño
+ *
+ */
 public interface NttDataClienteGestionServicioI {
 	/**
 	 * Inserta un nuevo cliente.

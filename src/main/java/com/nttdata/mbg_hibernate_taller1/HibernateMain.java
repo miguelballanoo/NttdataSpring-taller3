@@ -13,7 +13,11 @@ import com.nttdata.mbg_hibernate_taller1.services.NttDataContratoGestionServicio
 import com.nttdata.mbg_hibernate_taller1.services.NttDataContratoGestionServicioImpl;
 
 /**
- * Hello world!
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
+ * 
+ * Clase MAIN
+ * 
+ * @author Miguel Ángel Ballano Garduño
  *
  */
 public class HibernateMain {
@@ -41,9 +45,8 @@ public class HibernateMain {
 		// Se añade el cliente que se ha creado al servicio
 		servicioCliente.addCliente(cliente1);
 
-		// Consulta
+		// Consulta 1
 		List<NttDataCliente> clientes = servicioCliente.searchByNameAndSurname("Miguel", "Ballano", "Garduño");
-
 		for (final NttDataCliente cliente : clientes) {
 			System.out.println(cliente.toString());
 		}
@@ -60,23 +63,25 @@ public class HibernateMain {
 		// Se añade el contrato que se ha creado al servicio
 		servicioContrato.addContrato(contrato1);
 
-		// Consulta
+		// Consulta 2
 		List<NttDataContrato> contratos = servicioContrato.searchClienteById((long) 1);
-		for (final NttDataContrato contrato : contratos) {
+		for (final NttDataContrato contrato : contratos) {//Recorrido de los contratos encontrados
 			System.out.println(contrato.toString());
 		}
 
+		//Consulta 3
 		List<NttDataCliente> clientesJPA = servicioCliente.searchByDni("49167587G");
-
-		for (final NttDataCliente cliente : clientesJPA) {
+		for (final NttDataCliente cliente : clientesJPA) {//Recorrido de los clientes encontrados
 			System.out.println(cliente.toString());
 		}
 
-		// Consulta
+		// Consulta 4
 		List<NttDataContrato> contratosJPA = servicioContrato.searchByNameClienteAndIdContrato("Miguel", (long) 1);
-		for (final NttDataContrato contrato : contratosJPA) {
-			System.out.println("CON ->" + contrato.toString());
+		for (final NttDataContrato contrato : contratosJPA) {//Recorrido de los contratos encontrados
+			System.out.println(contrato.toString());
 		}
+		
+		
 		// Cierre de sesion
 		session.close();
 	}

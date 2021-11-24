@@ -9,9 +9,9 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 /**
- * Ejercicio Hibernate [Taller 1]
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
  * 
- * DAO de tabla CLIENTE
+ * Clase HibernateUtil
  * 
  * @author Miguel Ángel Ballano Garduño
  *
@@ -21,9 +21,7 @@ public class NttDataClienteDaoImpl extends CommonDaoImpl<NttDataCliente> impleme
 	/** Sesión de conexión a BD */
 	private Session session;
 
-	/**
-	 * Método constructor
-	 */
+	/* Método constructor */
 	public NttDataClienteDaoImpl(Session session) {
 		super(session);
 		this.session = session;
@@ -37,21 +35,22 @@ public class NttDataClienteDaoImpl extends CommonDaoImpl<NttDataCliente> impleme
 		}
 
 		// Localiza clientes en función del nombre y los apellidos.
-		final List<NttDataCliente> listaClientes = session.createQuery("FROM NttDataCliente WHERE name='" + name+"' AND firstSurname='" +firstSurname+ "' AND secondSurname='" +secondSurname+"'").list();
+		final List<NttDataCliente> listaClientes = session
+		        .createQuery("FROM NttDataCliente WHERE name='" + name + "' AND firstSurname='" + firstSurname + "' AND secondSurname='" + secondSurname + "'")
+		        .list();
 
 		return listaClientes;
 	}
 
-	
 	@Override
 	public List<NttDataCliente> searchByDni(String dni) {
 		CriteriaBuilder cb = session.getCriteriaBuilder();
 		CriteriaQuery<NttDataCliente> cquery = cb.createQuery(NttDataCliente.class);
 		Root<NttDataCliente> rootP = cquery.from(NttDataCliente.class);
-		
+
 		cquery.select(rootP).where(cb.equal(rootP.<String> get("dni"), dni));
 		final List<NttDataCliente> results = session.createQuery(cquery).getResultList();
-		
+
 		return results;
 	}
 

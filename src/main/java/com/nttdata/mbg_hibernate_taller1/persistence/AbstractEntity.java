@@ -7,9 +7,9 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Ejercicio Hibernate [Taller 1]
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
  * 
- * Entidad abstracta
+ * Clase abstracta 
  * 
  * @author Miguel Ángel Ballano Garduño
  *

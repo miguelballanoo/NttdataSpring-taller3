@@ -7,9 +7,9 @@ import org.hibernate.Session;
 
 
 /**
- * Ejercicio Hibernate [Taller 1]
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
  * 
- * DAO genérico
+ * Clase abstracta CommonDaoI
  * 
  * @author Miguel Ángel Ballano Garduño
  *

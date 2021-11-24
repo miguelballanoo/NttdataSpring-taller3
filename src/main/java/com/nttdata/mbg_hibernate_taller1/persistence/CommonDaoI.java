@@ -3,9 +3,9 @@ package com.nttdata.mbg_hibernate_taller1.persistence;
 import java.util.List;
 
 /**
- * Ejercicio Hibernate [Taller 1]
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
  * 
- * DAO genérico
+ * Interfaz CommonDAO
  * 
  * @author Miguel Ángel Ballano Garduño
  *

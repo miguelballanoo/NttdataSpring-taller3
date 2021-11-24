@@ -4,6 +4,14 @@ import java.util.List;
 
 import com.nttdata.mbg_hibernate_taller1.persistence.NttDataContrato;
 
+/**
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
+ * 
+ * Implementacion del servicio de gestion de contratos
+ * 
+ * @author Miguel Ángel Ballano Garduño
+ *
+ */
 public interface NttDataContratoGestionServicioI {
 	
 	/**

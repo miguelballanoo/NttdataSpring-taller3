@@ -10,6 +10,14 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+/**
+ * Ejercicio Hibernate & JPA [Taller 1, Taller 2 y Taller 3]
+ * 
+ * Clase NttDataContratoDaoImpl
+ * 
+ * @author Miguel Ángel Ballano Garduño
+ *
+ */
 public class NttDataContratoDaoImpl extends CommonDaoImpl<NttDataContrato> implements NttDataContratoDaoI {
 	/** Sesión de conexión a BD */
 	private Session session;
@@ -26,27 +34,28 @@ public class NttDataContratoDaoImpl extends CommonDaoImpl<NttDataContrato> imple
 		if (!session.getTransaction().isActive()) {
 			session.getTransaction().begin();
 		}
-		
-		//Localiza contratos en funcion del ID select * from t_contratos where clienteId_FK = ?
+
+		// Localiza contratos en funcion del ID select * from t_contratos where clienteId_FK = ?
 		final List<NttDataContrato> listContratos = session.createQuery("FROM NttDataContrato WHERE cliente.clienteId=" + clienteId).list();
 
-		
 		return listContratos;
 	}
 
 	@Override
 	public List<NttDataContrato> searchByNameClienteAndIdContrato(String nameCliente, Long contratoId) {
+		// Consulta
 		CriteriaBuilder cb = session.getCriteriaBuilder();
 		CriteriaQuery<NttDataContrato> cquery = cb.createQuery(NttDataContrato.class);
 		Root<NttDataContrato> rootP = cquery.from(NttDataContrato.class);
 		Join<NttDataContrato, NttDataCliente> pJoinT = rootP.join("cliente");
-		//Where
+		// Where
 		Predicate pr1 = cb.equal(pJoinT.getParent().<Long> get("contratoId"), contratoId);
 		Predicate pr2 = cb.equal(pJoinT.get("name"), nameCliente);
-		
+		// Consulta
 		cquery.select(rootP).where(cb.and(pr1, pr2));
+		// Ejecucion consulta
 		List<NttDataContrato> results = session.createQuery(cquery).getResultList();
-		
+
 		return results;
 	}
 
